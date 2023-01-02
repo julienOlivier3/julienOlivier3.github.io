@@ -13,18 +13,18 @@ nav_order: 1
 <div class="publications">
 
 
-<h3 class="type" align="left">Peer-reviewed journals</h3>
+<h3 class="ind" align="left">Peer-reviewed journals</h3>
 
   {%- for y in page.years1 %}
     <h2 class="year">{{y}}</h2>
-    {% bibliography -f papers -q @*[year={{y}}, type=Peer-reviewed journals]* %}
+    {% bibliography -f papers -q @*[year={{y}}, ind=Peer-reviewed journals]* %}
   {% endfor %}
 
-<h3 class="type" align="left">Theses</h3>
+<h3 class="ind" align="left">Theses</h3>
 
   {%- for y in page.years2 %}
     <h2 class="year">{{y}}</h2>
-    {% bibliography -f papers -q @*[year={{y}}, type=Theses]* %}
+    {% bibliography -f papers -q @*[year={{y}}, ind=Theses]* %}
   {% endfor %}
 
 </div>
