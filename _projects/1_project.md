@@ -115,11 +115,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
              <p>Julian Oliver Dörr </p>
-        
-  </div>
-    
-    
-  </div>
+    </div>
+</div>
   
 
 
@@ -131,7 +128,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="cross-language-coding" class="level2">
 <h2 class="anchored" data-anchor-id="cross-language-coding">Cross-language coding</h2>
 <section id="r" class="level3">
-<h3 class="anchored" data-anchor-id="r">R</h3>
+<h4 class="anchored" data-anchor-id="r">R</h4>
 <p><strong><code>R</code></strong> code chunks are written and executed just as we would do it in R Markdown. So, for users of R Markdown this should be very familiar.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(penguins, <span class="at">package =</span> <span class="st">"palmerpenguins"</span>)</span>
@@ -154,7 +151,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 <section id="python" class="level3">
-<h3 class="anchored" data-anchor-id="python">Python</h3>
+<h4 class="anchored" data-anchor-id="python">Python</h4>
 <p>The beauty comes into play when we add <strong><code>Python</code></strong> chunks of code.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> r.penguins</span>

@@ -1,8 +1,8 @@
 ---
 layout: page
 title: charging infrastructure
-description: Fully open-source web application analyzing maturity of charging infrastructure in Germany.
-img: assets/img/osm.png
+description: Fully open-source web application analyzing maturity of charging infrastructure.
+img: assets/img/osm.jpg
 importance: 2
 category: work
 ---
