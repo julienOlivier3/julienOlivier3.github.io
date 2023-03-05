@@ -865,6 +865,7 @@ Note that we restrict our requests to:
         text-align: right;
     }
 </style>
+<div class="scrollable">
 <table border="1">
   <thead>
     <tr>
@@ -1340,6 +1341,7 @@ Note that we restrict our requests to:
     </tr>
   </tbody>
 </table>
+</div>
 </div>
 </div>
 </div>

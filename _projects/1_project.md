@@ -252,7 +252,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 
 
-
+<div class="scrollable">
 <table border="1">
   <thead>
     <tr>
@@ -295,7 +295,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </tr>
   </tbody>
 </table>
-
+</div>
 
 
 <p>We simply switched from R to Python working on the <em>penguins</em> data set.</p>
@@ -325,7 +325,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 
 
-
+<div class="scrollable">
 <table border="1" class="fixed">
   <thead>
     <tr>
@@ -367,6 +367,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </tr>
   </tbody>
 </table>
+</div>
 
 </section>
 </section>
