@@ -1,8 +1,8 @@
 ---
 layout: page
 title: x-language coding
-description: A simple demonstration of using Python and R syntax within the same script using Quarto.
-img: assets/img/quarto.png
+description: A simple demonstration of coding with Python and R within the same IDE using Quarto.
+img: assets/img/R_python2.png
 importance: 1
 category: fun
 ---
@@ -17,7 +17,54 @@ category: fun
 
 <meta name="author" content="Julian Oliver Dörr">
 
-<title>Hello, Quarto</title>
+<style>
+table.fixed {table-layout:fixed; width:90px;}/*Setting the table width is important!*/
+table.fixed th {width:150px;}/*Setting the width of th columns*/
+
+
+:root {
+    --color_rgb: 225, 254, 224;
+}
+
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;  
+  
+}
+
+tr:nth-child(even){background-color: #f2f2f2; color: black !Important}
+tr:nth-child(even) td{color: black !Important}
+
+th {
+  text-align: left;
+  background-color: rgba(var(--color_rgb), 1);
+  color: black !Important;
+  /* #089c04 */
+  
+  
+}
+
+/* The scrollable part */
+
+.scrollable {
+  height: 500;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 30px;
+  
+}
+
+
+</style>
+
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -112,9 +159,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <div class="quarto-title-meta">
-    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading"><i>Author</i></div>
     <div class="quarto-title-meta-contents">
-             <p>Julian Oliver Dörr </p>
+             <p><i>Julian Oliver Dörr </i></p>
     </div>
 </div>
   
@@ -123,13 +170,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <section id="quarto" class="level2">
 <h2 class="anchored" data-anchor-id="quarto">Quarto</h2>
-<p><a href="https://quarto.org/">Quarto</a> weaves together narrative text and code to produce elegantly formatted output. Most interestingly, Quarto executes code written in different languages. The following gives an illustration of cross-language coding in Quarto (here using <strong><code>R</code></strong> and <strong><code>Python</code></strong> - other languages, e.g. Julia, are supported as well).</p>
+<p><a href="https://quarto.org/">Quarto</a> weaves together narrative text and code to produce elegantly formatted output. Most interestingly, Quarto executes code written in different languages. The following gives an illustration of cross-language coding in Quarto (here using R and Python - other languages, e.g. Julia, are supported as well).</p>
 </section>
 <section id="cross-language-coding" class="level2">
 <h2 class="anchored" data-anchor-id="cross-language-coding">Cross-language coding</h2>
 <section id="r" class="level3">
 <h4 class="anchored" data-anchor-id="r">R</h4>
-<p><strong><code>R</code></strong> code chunks are written and executed just as we would do it in R Markdown. So, for users of R Markdown this should be very familiar.</p>
+<p>R code chunks are written and executed just as we would do it in R Markdown. So, for users of R Markdown this should be very familiar.</p>
+
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"pacman"</span>)) <span class="fu">install.packages</span>(<span class="st">"pacman"</span>)</span></code>
+<code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, palmerpenguins, reticulate, viridis)</span></code>
+</pre></div>
+</div>
+
+
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(penguins, <span class="at">package =</span> <span class="st">"palmerpenguins"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> penguins[<span class="fu">complete.cases</span>(penguins),]</span>
@@ -146,52 +202,177 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="/assets/img/quarto_img1.png" class="img-fluid" width="672"></p>
+<p><img src="/assets/img/quarto_img1.png" class="img-fluid" width="750"></p>
 </div>
 </div>
 </section>
+
 <section id="python" class="level3">
 <h4 class="anchored" data-anchor-id="python">Python</h4>
-<p>The beauty comes into play when we add <strong><code>Python</code></strong> chunks of code.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> r.penguins</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>penguins.head(<span class="dv">3</span>)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>species     island      bill_length_mm  ...    body_mass_g      sex     year
-Adelie      Torgersen   39.1            ...    3750             male    2007  
-Adelie      Torgersen   39.5            ...    3800             female  2007  
-Adelie      Torgersen   40.3            ...    3250             female  2007</code></pre>
+
+<p>The beauty comes into play when we add Python chunks of code.</p>
+
+
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3">
+<pre>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span>
+</pre>
+</div>
+
 </div>
 </div>
-<p>We simply switched from <strong><code>R</code></strong> to <strong><code>Python</code></strong> working on the <em>penguins</em> data set.</p>
-<p>Now, let us train a simple classifier using the <code>scikit-learn</code> module in <strong><code>Python</code></strong>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> penguins[<span class="st">'species'</span>]</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> penguins[[<span class="st">'bill_length_mm'</span>,  <span class="st">'bill_depth_mm'</span>,  <span class="st">'flipper_length_mm'</span>, <span class="st">'body_mass_g'</span>]]</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size <span class="op">=</span> <span class="fl">0.2</span>, random_state <span class="op">=</span> <span class="dv">333</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>classifier <span class="op">=</span> RandomForestClassifier().fit(X_train, y_train)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>y_test_pred <span class="op">=</span> classifier.predict(X_test)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(classification_report(y_test, y_test_pred))</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-
-
-
-<pre><code>             precision    recall  f1-score   support
-
-     Adelie       1.00      0.95      0.98        22
-  Chinstrap       1.00      1.00      1.00        15
-     Gentoo       0.97      1.00      0.98        30
-
-avg / total       0.99      0.99      0.99        67</code></pre>
 </div>
 </div>
+</div>
+
+
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">penguins</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">penguins</span> <span class="c1"># here the R tibble turns into a pandas DataFrame</span>
+<span class="n">penguins</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>species</th>
+      <th>island</th>
+      <th>bill_length_mm</th>
+      <th>...</th>
+      <th>body_mass_g</th>
+      <th>sex</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>39.1</td>
+      <td>...</td>
+      <td>3750</td>
+      <td>male</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>39.5</td>
+      <td>...</td>
+      <td>3800</td>
+      <td>female</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>40.3</td>
+      <td>...</td>
+      <td>3250</td>
+      <td>female</td>
+      <td>2007</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<p>We simply switched from R to Python working on the <em>penguins</em> data set.</p>
+<p>Now, let us train a simple classifier using the <code>scikit-learn</code> module in Python.</p>
+
+
+
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre>
+<span class="n">y</span> <span class="o">=</span> <span class="n">penguins</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">penguins</span><span class="p">[</span><span class="s1">&#39;bill_length_mm&#39;</span><span class="p">,</span><span class="s1">&#39;bill_depth_mm&#39;</span><span class="p">,</span><span class="s1">&#39;flipper_length_mm&#39;</span><span class="p">,</span><span class="s1">&#39;body_mass_g&#39;</span><span class="p">]</span>
+<span class="n">X_train</span><span class="p">, </span><span class="n">X_test</span><span class="p">, </span><span class="n">y_train</span><span class="p">, </span><span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mi">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">333</span><span class="p">)</span>
+
+<span class="n">classifier</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_test_pred</span> <span class="o">=</span> <span class="n">classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_test_pred</span><span class="p">)</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+<table border="1" class="fixed">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1-Score</th>
+      <th>Support</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Adelie</th>
+      <td>1.00</td>
+      <td>0.95</td>
+      <td>0.98</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th>Chinstrap</th>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>Gentoo</th>
+      <td>0.97</td>
+      <td>1.00</td>
+      <td>0.98</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <th>Average/Total</th>
+      <td>0.99</td>
+      <td>0.99</td>
+      <td>0.99</td>
+      <td>67</td>
+    </tr>
+  </tbody>
+</table>
+
 </section>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>Great, with Quarto it is possible to write reports, presentations, … using different languages. Here, we have made use of <strong><code>R</code></strong>’s <code>tidyverse</code> for data preprocessing and visualization and <strong><code>Python</code></strong>’s Machine Learning frameworks (<code>scikit-learn</code> in this example). So, Quarto really enables you to pick the best of both worlds.</p>
+<p>Great, with Quarto it is possible to write reports, presentations, … using different languages. Here, we have made use of R's <code>tidyverse</code> for data preprocessing and visualization and Python's Machine Learning frameworks (<code>scikit-learn</code> in this example). So, Quarto really enables you to pick the best of both worlds.</p>
 </section>
 
 

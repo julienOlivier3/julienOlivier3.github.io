@@ -8,31 +8,47 @@ category: work
 ---
 
 
-<html>
-<head><meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=ye">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.149">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Julian Oliver Dörr">
 
 <title>Create_Web_Panel</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 <style>
+:root {
+    --color_rgb: 225, 254, 224;
+}
+
+
 table {
   border-collapse: collapse;
   width: 100%;
-  margin-bottom:30px;
+  margin-bottom: 30px;
 }
 
 th, td {
   text-align: left;
-  padding: 8px;
+  padding: 8px;  
+  
 }
 
-tr:nth-child(even){background-color: #f2f2f2}
+tr:nth-child(even){background-color: #f2f2f2; color: black !Important}
+tr:nth-child(even) td{color: black !Important}
 
 th {
   text-align: left;
-  background-color: #089c04;
-  color: white;
+  background-color: rgba(var(--color_rgb), 1);
+  color: black !Important;
+  /* #089c04 */
+  
+  
 }
 
 /* The scrollable part */
@@ -42,6 +58,8 @@ th {
   overflow-x: scroll;
   overflow-y: hidden;
   border-bottom: 1px solid #ddd;
+  margin-bottom: 30px;
+  
 }
 
 
@@ -129,175 +147,179 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <body class="fullcontent">
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
-<main class="content" id="quarto-document-content">
 
 
 
 <div class="quarto-title-meta">
-    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading"><i>Author</i></div>
     <div class="quarto-title-meta-contents">
-             <p>Julian Oliver Dörr </p>
+             <p><i>Julian Oliver Dörr </i></p>
     </div>
 </div>
 
 
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>This blog post shows how to create <strong>Dynamic Web Panels</strong> for corporate companies spanning a horizon of over 10 years of archived web data. The proposed framework uses web data archived on <a href="https://commoncrawl.org/">Common Crawl</a> and the <a href="https://archive.org/">Internet Archive</a>. For illustration purposes, a web panel of the DAX 30 companies comprising web data over more than 10 years is created.</p>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputPrompt jp-InputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>This blog post shows how to create dynamic panel datasets covering information of corporate companies from archived web data. The proposed framework uses web data archived on <a href="https://commoncrawl.org/">Common Crawl</a> and the <a href="https://archive.org/">Internet Archive</a>. For illustration purposes, a web panel of the DAX 30 companies comprising web data over more than 10 years is created.</p>
+</div>
+</div>
 
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputPrompt jp-InputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2>Why corporate websites?</h2>
-Company websites pose an important source of economic data used by firms to spread product and service information (related to establishing a public image), to conduct transactions (e-business processes) and to ease opinion sharing (electronic word-of-mouth) (<a href="https://doi.org/10.1016/j.techfore.2017.07.027">Balzquez &amp; Domenech, 2018</a>). Recent economic studies have used corporate website data to:</p>
+Company websites pose an important source of economic data used by firms to spread product and service information (related to establishing a public image), to conduct transactions (e-business processes) and to ease opinion sharing (electronic word-of-mouth) (<a href="https://doi.org/10.1016/j.techfore.2017.07.027">Blazquez &amp; Domenech, 2018</a>). Recent economic studies have used corporate website data to:
 <ul>
 <li>predict firm innovativeness (<a href="10.1007/s11192-014-1434-0">Gök et al., 2015</a>, <a href="https://doi.org/10.1371/journal.pone.0249071">Kinne &amp; Lenz, 2021</a>; <a href="https://doi.org/10.1371/journal.pone.0249583">Axenbeck &amp; Breithaupt, 2021</a>)</li>
 <li>examine market entry strategies (<a href="https://doi.org/10.1007/s11192-013-0950-7">Arora et al., 2013</a>)</li>
 <li>examine enterprise growth (<a href="10.1016/j.technovation.2016.01.002">Li et al., 2016</a>)</li>
-<li>monitor firm export orientation (<a href="https://doi.org/10.3846/20294913.2016.1213193">Balzquez &amp; Domenech, 2017</a>)</li>
-<li>track crisis impacts on the corporate sector (<a href="http://dx.doi.org/10.2139/ssrn.3924887">Dörr et al., 2021</a>)</li>
+<li>monitor firm export orientation (<a href="https://doi.org/10.3846/20294913.2016.1213193">Blazquez &amp; Domenech, 2017</a>)</li>
+<li>track crisis impacts on the corporate sector (<a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0263898">Dörr et al., 2022</a>)</li>
 <li>...</li>
 </ul>
+</div>
+</div>
 
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputPrompt jp-InputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2>Why panel data?</h2>
-Firm characteristics, diffusion processes such as technological advances and adoption as well as business relations are clearly not static but evolve over time. It requires a continuous monitoring of corporate websites to capture this information. Most research studies require long time spans to derive meaningful insights and to control for unobserved heterogeneity across firms. For this reason, this post shows how to create a panel dataset of unstructured firm website information using <a href="https://commoncrawl.org/">Common Crawl</a>. Common Crawl is an open repository of web data crawled from the universe of websites worldwide over the last 12 years. The Common Crawl corpus contains 'petabytes of [...] raw web page data, metadata extracts and text extracts' and is freely accessible to anybody.</p>
+Firm characteristics, diffusion processes such as technological advances and adoption as well as business relations are clearly not static but evolve over time. It requires a continuous monitoring of corporate websites to capture this information. Most research studies require long time spans to derive meaningful insights and to control for unobserved heterogeneity across firms. For this reason, this post shows how to create a panel dataset of unstructured firm website information using <a href="https://commoncrawl.org/">Common Crawl</a>. Common Crawl is an open repository of web data crawled over time from the universe of websites. The Common Crawl corpus contains 'petabytes of [...] raw web page data, metadata extracts and text extracts' and is freely accessible to anybody.
+</div>
+</div>
 
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>In the following, we show how to create website information of a company at different points in time given its URL. For this purpose, we use <a href="https://github.com/cocrawler/cdx_toolkit/blob/master/README.md">cdx_toolkit</a> a Python module for querying the Common Crawl corpus.</p>
 
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputPrompt jp-InputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>In the following, we show how to retrieve mostly textual website information of a company at different points in time given its web address. For this purpose, we use <a href="https://github.com/cocrawler/cdx_toolkit/blob/master/README.md">cdx_toolkit</a> a Python module for querying the Common Crawl corpus.</p>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputPrompt jp-InputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2>Retrieve historical company website information</h2>
 <p>First, we start to load the required Python modules:</p>
-
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>
+
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">cdx_toolkit</span>
-</pre></div>
-
-     </div>
+</pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputPrompt jp-InputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Next, for demonstration purposes we create a sample list of corporate URLs:</p>
-
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>
+
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">urls</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;zew.de/*&#39;</span><span class="p">,</span> <span class="s1">&#39;sap.com/*&#39;</span><span class="p">,</span> <span class="s1">&#39;otaro-shop.com/*&#39;</span><span class="p">]</span> <span class="c1">#zew.de/*, will return captures for any page on zew.de, e.g. zew.de/presse. Remove * to restrict captures to zew.de only</span>
-</pre></div>
-
-     </div>
+</pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputPrompt jp-InputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Instantiate the CDXFetcher() which allows to search Common Crawl's corpus for entries of a given corporate URL. Note that cdx_toolkit also allows querying the <a href="https://archive.org/">Internet Archive</a>, a collection of archived web data ranging even further back in time than Common Crawl (more on this later).</p>
-
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>
+
+
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">cdx_toolkit</span><span class="o">.</span><span class="n">CDXFetcher</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s1">&#39;cc&#39;</span><span class="p">)</span> <span class="c1"># cc stands for Common Crawl</span>
-</pre></div>
-
-     </div>
+</pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>No we can search Common Crawl's corpus for archived web data of <a href="https://www.zew.de">ZEW</a>'s website, for example.<br>
+
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputPrompt jp-InputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Now we can search Common Crawl's corpus for archived web data of the respective company websites.<br>
 In a first step, we only extract the metadata including information such as the time of crawling (<strong>timestamp</strong>), the nature and format of the crawled document (<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types"><strong>mime</strong></a>), the HTTP status code (<a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes"><strong>status</strong></a>) and information revealing the size of the web document in bytes (<strong>offset</strong>) and character length (<strong>length</strong>).</p>
+</div>
+</div>
 
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Note that we restrict our requests to:</p>
+
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputPrompt jp-InputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+Note that we restrict our requests to:
 <ul>
 <li>the year 2017</li>
 <li>successful crawling attempts (HTTP-status = 200)</li>
 <li>text data only (mime = text/html)</li>
 <li>and only extract 10 web pages archived in 2017.</li>
 </ul>
-
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>
+
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">requests</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">iter</span><span class="p">(</span><span class="n">urls</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">from_ts</span><span class="o">=</span><span class="s1">&#39;201701&#39;</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="s1">&#39;201712&#39;</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;=status:200&#39;</span><span class="p">,</span> <span class="s1">&#39;=mime-detected:text/html&#39;</span><span class="p">]))</span>
-</pre></div>
-
-     </div>
+</pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">metadata</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">r</span><span class="o">.</span><span class="n">data</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">requests</span><span class="p">])</span>
 <span class="n">metadata</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-
-     </div>
+</pre>
 </div>
 </div>
 </div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div>
-
+</div>
+</div>
+</div>
 
 
 
@@ -362,58 +384,54 @@ In a first step, we only extract the metadata including information such as the 
 </div>
 
 
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>As it can be seen the metadata information provides an overview of what sort of archived web data is available for the given URL. Most importantly note, that only websites successfully archived in 2017 that include textual content have been requested. We have not yet download the actual content found on the website but only inspected the respective metadata. In the next step we will download the textual content found on the respective web page at the given point of time.</p>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputPrompt jp-InputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>As it can be seen the metadata information provides an overview of what sort of archived web data is available for the given URL. Most importantly note, that only websites successfully archived in 2017 that include textual content have been requested. We have not yet download the actual content found on the website but only inspected the respective metadata. In a next step we will download the textual content found on the respective web page at the given point in time.</p>
+</div>
+</div>
 
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputPrompt jp-InputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>For this purpose, we import BeautifulSoup which allows to easily parse the HTML code of the web page.</p>
-
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>
+
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
 <span class="n">textdata</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">requests</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">])</span>
-</pre></div>
-
-     </div>
+</pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">metadata</span><span class="p">,</span> <span class="n">textdata</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[[</span><span class="s1">&#39;timestamp&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">]]</span>
-</pre></div>
-
-     </div>
+</pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
 
 
 
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -479,104 +497,102 @@ In a first step, we only extract the metadata including information such as the 
 </table>
 
 
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>We see that with the framework introduced here it is convenient to extract textual content found on corporate websites for a given timestamp. In the example, we have extracted webtexts of <a href="https://www.zew.de">ZEW</a> for the year 2017. With Common Crawl one can go further back in past extracting the web content of a company up until 2008. In doing so one can even be more precise in the date. We have restricted the search to the year 2017 only, but one could even be more restrictive extracting webdata archived in a specific month or even on a specific day (if the website has been crawled on this day). The internet does not forget! In this way, it is easily possible to obtain historical webdata of German corporations contained in the Mannheim Web Panel.</p>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputPrompt jp-InputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>We see that with the framework introduced here it is convenient to extract textual content found on corporate websites for a given timestamp. In the example, we have extracted webtexts of <a href="https://www.zew.de">ZEW</a> for the year 2017. With Common Crawl one can go further back in past extracting web content of a company up until 2008. In doing so, one can even be more precise in the date. We have restricted the search to the year 2017 only, but one could even be more restrictive extracting webdata archived in a specific month or even on a specific day (if the website has been archived on that day) - the internet does not forget. In this way, it becomes easily possible to obtain historical website information of any corporation.</p>
+</div>
+</div>
 
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>With this approach it is easy to extend the panel going even further back in time. We will use web data archived in the Internet Archive for this purpose.</p>
 
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputPrompt jp-InputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>With this approach it is easy to extend the panel going even further back in time. We will use web data archived in another web archive, the Internet Archive for this purpose.</p>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>
+
+
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">cdx_toolkit</span><span class="o">.</span><span class="n">CDXFetcher</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s1">&#39;ia&#39;</span><span class="p">)</span> <span class="c1"># "ia" stands for Internet Archive, alternatively "cc" for Common Crawl</span>
-</pre></div>
-
-     </div>
+<div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">cdx_toolkit</span><span class="o">.</span><span class="n">CDXFetcher</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s1">&#39;ia&#39;</span><span class="p">)</span> <span class="c1"># "ia" stands for Internet Archive</span>
+</pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span> <span class="c1"># allows to monitor progress of the execution</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span><span class="mi">2017</span><span class="p">)):</span>
+<span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span><span class="mi">2023</span><span class="p">)):</span>
     <span class="n">requests</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">iter</span><span class="p">(</span><span class="n">urls</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">from_ts</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">to</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;status:200&#39;</span><span class="p">,</span> <span class="s1">&#39;mime:text/html&#39;</span><span class="p">]))</span>
     <span class="n">df_temp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">r</span><span class="o">.</span><span class="n">data</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">requests</span><span class="p">]),</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">requests</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">])],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">df_temp</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_temp</span><span class="o">.</span><span class="n">timestamp</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span>
     <span class="n">df_temp</span> <span class="o">=</span> <span class="n">df_temp</span><span class="p">[[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">]]</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df_temp</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 
-     </div>
-</div>
-</div>
-</div>
+
+
 
 <div class="jp-Cell-outputWrapper">
-
-
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
 <pre>100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 7/7 [01:24&lt;00:00, 12.11s/it]
 </pre>
 </div>
 </div>
-
+</div>
+</div>
 </div>
 
-</div>
 
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputPrompt jp-InputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>If we take a look at the data, we see that now we have 10 additional snapshots of <a href="https://www.zew.de">ZEW</a>'s website for the years 2010-2022.</p>
-
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div>
+
+
+
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span>
-</pre></div>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 
-     </div>
-</div>
-</div>
-</div>
+
 
 <div class="jp-Cell-outputWrapper">
-
-
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
-
-
-
-
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 <div>
 <style scoped>
@@ -646,163 +662,147 @@ In a first step, we only extract the metadata including information such as the 
     </tr>
   </tbody>
 </table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
-
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputPrompt jp-InputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Overall, with the proposed framework we could extend the panel for <a href="https://www.zew.de">ZEW</a> comprising now web data from 2010 to 2022. A coverage of 13 years suits much more for economic research that looks at the diffusion of technologies over time, for instance.</p>
+</div>
+</div>
 
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputPrompt jp-InputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Scaling-up-further:-Extract-historic-web-data-for-more-than-just-one-company">Scaling up further: Extract historic web data for more than just one company<a class="anchor-link" href="#Scaling-up-further:-Extract-historic-web-data-for-more-than-just-one-company"></a></h2>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Of course we can scale up the above approach to retrieve web content for a larger number of firms. Let us do so for the DAX 30 companies.</p>
 
+
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputPrompt jp-InputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Naturally, we can scale up the above approach to retrieve web content for a larger number of firms. Let us do so for the DAX 30 companies.</p>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>
+
+
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
 <span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
 <span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">re</span>
-</pre></div>
-
-     </div>
+</pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>First we get the URLs of the DAX 30 companies. These are available on the internet. See, for example. <a href="https://disfold.com/top-companies-germany-dax/">here</a>. For convenience I scrape them in the following lines of code.</p>
 
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputPrompt jp-InputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>First, we collect the URLs of all DAX companies. For convenience, I scrape them with the following lines of code.</p>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>
+
+
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-
-
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">landing</span> <span class="o">=</span> <span class="s1">&#39;https://disfold.com/top-companies-germany-dax/&#39;</span>
 <span class="n">page</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">landing</span><span class="p">)</span>
 <span class="n">html</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">page</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
 <span class="n">dax30</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;entry-content&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;_blank&#39;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">urls</span> <span class="o">=</span> <span class="p">[</span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\..{1,}\.(?:com|de|rwe)&#39;</span><span class="p">,</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="s1">&#39;/*&#39;</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">dax30</span><span class="p">]</span>
-</pre></div>
-
-     </div>
+</pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputPrompt jp-InputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Let us have a quick glimpse on the URLs of all DAX 30 companies.</p>
-
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div>
+
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">urls</span>
-</pre></div>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 
-     </div>
-</div>
-</div>
-</div>
 
 <div class="jp-Cell-outputWrapper">
-
-
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
-    
-    
-
-
-
-
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>[&#39;thyssenkrupp.com/*&#39;,
- &#39;covestro.com/*&#39;,
- &#39;lufthansa.com/*&#39;,
- &#39;merckgroup.com/*&#39;,
- &#39;wirecard.com/*&#39;,
- &#39;heidelbergcement.com/*&#39;,
- &#39;group.rwe/*&#39;,
- &#39;db.com/*&#39;,
- &#39;deutsche-boerse.com/*&#39;,
- &#39;eon.com/*&#39;,
- &#39;freseniusmedicalcare.com/*&#39;,
- &#39;infineon.com/*&#39;,
- &#39;vonovia.de/*&#39;,
- &#39;beiersdorf.com/*&#39;,
- &#39;fresenius.com/*&#39;,
- &#39;continental-corporation.com/*&#39;,
- &#39;munichre.com/*&#39;,
- &#39;henkel.com/*&#39;,
- &#39;dpdhl.com/*&#39;,
- &#39;adidas-group.com/*&#39;,
- &#39;bmw.com/*&#39;,
- &#39;bayer.com/*&#39;,
- &#39;daimler.com/*&#39;,
- &#39;basf.com/*&#39;,
- &#39;telekom.com/*&#39;,
- &#39;volkswagenag.com/*&#39;,
- &#39;siemens.com/*&#39;,
- &#39;allianz.com/*&#39;,
- &#39;lindeplc.com/*&#39;,
- &#39;sap.com/*&#39;]</pre>
+<pre> <a style="color:black">[</a> &#39;thyssenkrupp.com/*&#39;, &#39;covestro.com/*&#39;, &#39;lufthansa.com/*&#39;, &#39;merckgroup.com/*&#39;,
+ &#39;wirecard.com/*&#39;, &#39;heidelbergcement.com/*&#39;, &#39;group.rwe/*&#39;, &#39;db.com/*&#39;,
+ &#39;deutsche-boerse.com/*&#39;, &#39;eon.com/*&#39;, &#39;freseniusmedicalcare.com/*&#39;, &#39;infineon.com/*&#39;,
+ &#39;vonovia.de/*&#39;, &#39;beiersdorf.com/*&#39;, &#39;fresenius.com/*&#39;, &#39;continental-corporation.com/*&#39;,
+ &#39;munichre.com/*&#39;, &#39;henkel.com/*&#39;, &#39;dpdhl.com/*&#39;, &#39;adidas-group.com/*&#39;,
+ &#39;bmw.com/*&#39;, &#39;bayer.com/*&#39;, &#39;daimler.com/*&#39;, &#39;basf.com/*&#39;,
+ &#39;telekom.com/*&#39;, &#39;volkswagenag.com/*&#39;, &#39;siemens.com/*&#39;, &#39;allianz.com/*&#39;,
+ &#39;lindeplc.com/*&#39;, &#39;sap.com/*&#39; <a style="color:black">]</a> </pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 
+
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputPrompt jp-InputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Given the URLs, we can now construct a web data panel set for the DAX 30 companies applying the framework introduced above.</p>
+</div>
 </div>
 
-</div>
 
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Given the URLs, we can now construct a web data panel set for the DAX 30 companies applying the introduced framework in this blog post.</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
-</div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">urls</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span><span class="mi">2022</span><span class="p">)):</span>
@@ -813,43 +813,39 @@ In a first step, we only extract the metadata including information such as the 
             <span class="n">df_temp</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span>
             <span class="n">df_temp</span> <span class="o">=</span> <span class="n">df_temp</span><span class="p">[[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">]]</span>
             <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df_temp</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-
-     </div>
+</pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputPrompt jp-InputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>In the table below we see how many distinct web pages for each of the 30 DAX companies in each of the years could have been retrieved with the proposed framework. Note that we have set the depth limit to 10 distinct web pages per company and year. Typically, for large companies, such as publicly listed firms, there are many more web pages archived.</p>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>In the table below we see how many distinct web pages for each of the 30 DAX companies in each of the years could have been retrieved with the proposed framework. Note that we have set the depth limit to 10 distinct webpages per company and year. Typically, for large companies, such as publivly listed firms, there are many more webpages archived.</p>
+</div>
 
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;DAX 30 company&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="s1">&#39;Number of webpages&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;DAX 30 company&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="n">aggfunc</span><span class="o">=</span><span class="nb">len</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
+<div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;DAX 30 company&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="s1">&#39;Number of web pages&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;DAX 30 company&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="n">aggfunc</span><span class="o">=</span><span class="nb">len</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre>
 
-     </div>
 </div>
 </div>
 </div>
+</div>
+</div>
+
 
 <div class="jp-Cell-outputWrapper">
-
-
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
-
-
-
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 <div>
 <style scoped>
@@ -888,7 +884,7 @@ In a first step, we only extract the metadata including information such as the 
     </tr>
     <tr>
       <th>DAX 30 company</th>
-      <th colspan="12" style="text-align:center">Number of webpages</th>
+      <th colspan="12" style="text-align:center">Number of web pages</th>
     </tr>
   </thead>
   <tbody>
@@ -1346,69 +1342,51 @@ In a first step, we only extract the metadata including information such as the 
 </table>
 </div>
 </div>
-
+</div>
+</div>
+</div>
 </div>
 
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputPrompt jp-InputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Overall, we could build a web panel of DAX 30 companies spanning the last 12 years. The size of the web panel comprises</p>
+</div>
 </div>
 
-</div>
 
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Overall we could build a web panel of DAX 30 companies spanning the last 12 years. The size of the web panel comprises</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
+<div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">/</span><span class="mi">1000000</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; MB&#39;</span><span class="p">)</span>
-</pre></div>
-
-     </div>
+</pre>
+</div>
+</div>
 </div>
 </div>
 </div>
 
 <div class="jp-Cell-outputWrapper">
-
-
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>35.980528 MB
-</pre>
+<pre><a style="color:black">35.98 MB</a></pre>
 </div>
 </div>
-
 </div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>This blog post has shown how to create a panel of web data using archived websites on Common Crawl or the Internet Archive. Web content changes over time and without the preservation efforts of these organizations information from the web would get lost. Resembling past information from the web in a structured way allows to analyze dynamics and changing themes on the world wibe web.</p>
-
 </div>
 </div>
 
+<h2>Conclusion</h2>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>This post has shown how to create a panel of web data using archived websites on Common Crawl or the Internet Archive. Web content changes over time and without the preservation efforts of web archives information from the web would get lost. Resembling past information from the web in a structured way allows to analyze dynamics and changing themes on the world wide web.</p>
 
-
-
-
-
-
-
+</div>
+</div>
 
 </body></html>
