@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Welcome to my personal homepage.
+subtitle: Welcome to my personal website.
 #subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
 
 profile:

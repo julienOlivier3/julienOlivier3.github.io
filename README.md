@@ -11,5 +11,6 @@ The template is a simple, clean, and responsive [Jekyll](https://jekyllrb.com/) 
 2. `bundle exec jekyll serve --lsi` for inspecting changes before deployment
 
 ## Deployment
-1. from root of repository open bash script
-2. execute `./bin/deploy`
+1. Push all changes
+2. from root of repository open bash script
+3. execute `./bin/deploy`
