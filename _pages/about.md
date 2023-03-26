@@ -7,7 +7,7 @@ subtitle: Welcome to my personal website.
 
 profile:
   align: right
-  image: Julian_legere2.jpg
+  image: 31_Dörr_Al_2_22032023_Zuschnitt_klein.jpg
   image_circular: false # crops the image to make it circular
   #address: >
   #  <p>555 your office number</p>
